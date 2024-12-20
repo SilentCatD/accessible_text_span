@@ -17,6 +17,6 @@ on:
 
 
 jobs:
-  yamlAnalyzeOnChangedActions:
+  lint_actions:
     uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_analyze_action.yml
 
