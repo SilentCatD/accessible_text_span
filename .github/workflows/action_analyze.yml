@@ -3,6 +3,8 @@ name: Analyze github action changes
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
   pull_request:
     types:
       - opened
