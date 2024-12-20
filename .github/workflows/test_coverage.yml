@@ -19,4 +19,4 @@ on:
 
 jobs:
   coverage_test:
-    uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_flutter_test.yml
+    uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_flutter_test.yml@main

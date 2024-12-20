@@ -19,4 +19,4 @@ on:
 
 jobs:
   lint:
-    uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_analyze_dart_code.yml
+    uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_analyze_dart_code.yml@main
