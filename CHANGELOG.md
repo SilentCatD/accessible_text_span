@@ -1,3 +1,6 @@
+## 1.0.2
+- Add example
+ 
 ## 1.0.1
 - Fix CI
  
