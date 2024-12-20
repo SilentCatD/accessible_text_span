@@ -22,6 +22,5 @@ on:
 jobs:
   coverage_test:
     uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_flutter_test.yml@main
-    with:
-      secrets:
-        code-cov-token: ${{ secrets.CODECOV_TOKEN }}
+    secrets:
+      code-cov-token: ${{ secrets.CODECOV_TOKEN }}
