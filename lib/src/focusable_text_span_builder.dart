@@ -2,18 +2,27 @@ import 'package:accessible_text_span/src/type.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+/// Manage the creation of [FocusNode]s to build focusable [TextSpan]
 class FocusableTextSpanBuilder {
+  /// List of [FocusNode] used to build focusable [TextSpan]
   final List<FocusNode> nodes;
 
+  /// Create the object that manage focusable [TextSpan] [FocusNode]s, building
+  /// nested tree of input [TextSpan]
+  /// Custom list of available [FocusNode] can be specified to have more fined
+  /// grained control
   FocusableTextSpanBuilder({List<FocusNode> nodes = const []})
       : nodes = List.of(nodes, growable: true);
 
+  /// Call this to dispose all of the current [FocusNode] managed by this object
   void dispose() {
     for (var e in nodes) {
       e.dispose();
     }
   }
 
+  /// Recursively transforming input [TextSpan] into a similar structure of
+  /// focusable [TextSpan]
   TextSpan buildSpan(
     BuildContext context, {
     required TextSpan textSpan,
@@ -41,7 +50,8 @@ class FocusableTextSpanBuilder {
             child: FocusableActionDetector(
               focusNode: node,
               actions: {
-                ActivateIntent: CallbackAction<ActivateIntent>(onInvoke: (intent) {
+                ActivateIntent:
+                    CallbackAction<ActivateIntent>(onInvoke: (intent) {
                   gestureRecognizer.onTap?.call();
                   return null;
                 }),

@@ -13,29 +13,72 @@ and the Flutter guide for
 
 [![codecov](https://codecov.io/github/SilentCatD/accessible_text_span/graph/badge.svg?token=wTay7Q3ild)](https://codecov.io/github/SilentCatD/accessible_text_span)
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+[![pub package](https://img.shields.io/pub/v/accessible_text_span?color=green&include_prereleases&style=plastic)](https://pub.dev/packages/accessible_text_span)
+
+<img src="https://github.com/SilentCatD/accessible_text_span/blob/main/assets/focusable.gif?raw=true" width="200px">
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+First import the widget
 
-## Getting started
+```dart
+import 'package:accessible_text_span/accessible_text_span.dart';
+```
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+When implementing accessibility, enabling keyboard navigation for interactive elements is crucial.
+
+However, due to a current
+limitation ([Flutter issue #138692](https://github.com/flutter/flutter/issues/138692)),
+navigating and interacting with a `TextSpan` is not yet supported.
+
+This package is designed to address this limitation by providing a solution to make `TextSpan`
+accessible for both TalkBack and keyboard navigation when the user pressing **TAB** or **ENTER**
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+AccessibleRichText(
+  TextSpan(
+    children: [
+      TextSpan(
+        text: "link 1",
+        recognizer: TapGestureRecognizer()
+          ..onTap = () {
+            // on link tap or activated by keyboard
+          },
+      ),
+      const TextSpan(
+        text: "and ",
+      ),
+      TextSpan(
+        text: "link 2",
+        recognizer: TapGestureRecognizer()
+          ..onTap = () {
+            // on link tap or activated by keyboard
+          },
+      ),
+    ],
+  ),
+  focusedStyle: (context) {
+    return DefaultTextStyle.of(context).style.copyWith(
+          decoration: TextDecoration.underline,
+          backgroundColor: Colors.grey,
+          color: Colors.purple,
+        );
+  },
+),
 ```
 
-## Additional information
+Replace the `Text.rich` or `RichText` widget in your app with the `AccessibleRichText` widget.
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+To make a specific `TextSpan` focusable, it must include a `TextSpan.recognizer` of type 
+`TapGestureRecognizer`.
+
+The visual representation of a focused `TextSpan` can be customized using the 
+`AccessibleRichText.focusedStyle` property.
+
+For manual manipulation and management of `FocusNode`, you can create and provide your own instance 
+of `FocusableTextSpanBuilder`.
+
+Pressing **TAB** will navigating through created focusable `TextSpan` while **ENTER** will activate
+the associated `TapGestureRecognizer.onTap` function.

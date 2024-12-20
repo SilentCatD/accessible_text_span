@@ -13,6 +13,8 @@ on:
       - labeled
       - unlabeled
     paths:
+      - '**/analysis_options.yml'
+      - '**/pubspec.yml'
       - '**/*.dart'
       - '!**/*.g.dart'
       - '!**/*.mocks.dart'

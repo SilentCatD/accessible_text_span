@@ -1,7 +1,8 @@
 name: accessible_text_span
-description: "A new Flutter project."
-version: 0.0.1
-homepage:
+description: "A RichText variation that support keyboard navigation and focus for accessibility"
+version: 0.0.2
+issue_tracker: https://github.com/SilentCatD/accessible_text_span/issues
+repository: https://github.com/SilentCatD/accessible_text_span
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
