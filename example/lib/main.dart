@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                   ),
                   const TextSpan(
-                    text: "and",
+                    text: "and ",
                   ),
                   TextSpan(
                     text: "link 2",
@@ -129,6 +129,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+              focusedStyle: (context) {
+                return DefaultTextStyle.of(context).style.copyWith(
+                      decoration: TextDecoration.underline,
+                      backgroundColor: Colors.grey,
+                      color: Colors.purple,
+                    );
+              },
             ),
             const Text(
               'You have pushed the button this many times:',
