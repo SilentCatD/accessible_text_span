@@ -1,8 +1,10 @@
-name: Lint
+name: Code coverage test
 
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
   pull_request:
     types:
       - opened
@@ -18,5 +20,7 @@ on:
 
 
 jobs:
-  lint:
-    uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_analyze_dart_code.yml
+  coverage_test:
+    uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_flutter_test.yml@main
+    secrets:
+      code_cov_token: ${{ secrets.CODECOV_TOKEN }}

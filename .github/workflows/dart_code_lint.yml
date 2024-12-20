@@ -1,8 +1,10 @@
-name: Code coverage test
+name: Lint
 
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
   pull_request:
     types:
       - opened
@@ -18,5 +20,5 @@ on:
 
 
 jobs:
-  coverage_test:
-    uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_flutter_test.yml
+  lint:
+    uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_analyze_dart_code.yml@main
