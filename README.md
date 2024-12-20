@@ -11,6 +11,8 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
+[![codecov](https://codecov.io/github/SilentCatD/reusable_actions_and_workflows/graph/badge.svg?token=pyYQoc46cQ)](https://codecov.io/github/SilentCatD/reusable_actions_and_workflows)
+
 TODO: Put a short description of the package here that helps potential users
 know whether this package might be useful for them.
 
