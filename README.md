@@ -11,9 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-[![codecov](https://codecov.io/github/SilentCatD/accessible_text_span/graph/badge.svg?token=wTay7Q3ild)](https://codecov.io/github/SilentCatD/accessible_text_span)
-
-[![pub package](https://img.shields.io/pub/v/accessible_text_span?color=green&include_prereleases&style=plastic)](https://pub.dev/packages/accessible_text_span)
+[![codecov](https://codecov.io/github/SilentCatD/accessible_text_span/graph/badge.svg?token=wTay7Q3ild)](https://codecov.io/github/SilentCatD/accessible_text_span) [![pub package](https://img.shields.io/pub/v/accessible_text_span?color=green&include_prereleases&style=plastic)](https://pub.dev/packages/accessible_text_span)
 
 <img src="https://github.com/SilentCatD/accessible_text_span/blob/main/assets/focusable.gif?raw=true" width="200px">
 
