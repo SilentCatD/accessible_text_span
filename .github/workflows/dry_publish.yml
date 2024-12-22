@@ -8,4 +8,6 @@ on:
 
 jobs:
   dry_publish:
+    permissions:
+      id-token: write
     uses: SilentCatD/reusable_actions_and_workflows/.github/workflows/template_dart_publish_dry_run.yml@main
