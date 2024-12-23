@@ -1,3 +1,6 @@
+## 1.1.0
+- Support swiping gesture
+ 
 ## 1.0.2
 - Add example
  
