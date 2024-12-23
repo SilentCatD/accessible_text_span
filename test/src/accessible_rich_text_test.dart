@@ -23,11 +23,10 @@ void main() {
     builder = FocusableTextSpanBuilder();
   });
 
-  tearDown(() {
-    builder.dispose();
-  });
-
   testWidgets("render non interact span depth 1", (tester) async {
+    addTearDown(() {
+      builder.dispose();
+    });
     final mockBuilder = MockFocusableTextSpanBuilder();
     when(
       mockBuilder.buildSpan(
@@ -61,6 +60,9 @@ void main() {
     )).called(1);
   });
   testWidgets("non dispose called", (tester) async {
+    addTearDown(() {
+      builder.dispose();
+    });
     final mockBuilder = MockFocusableTextSpanBuilder();
     when(
       mockBuilder.buildSpan(
@@ -89,6 +91,9 @@ void main() {
   });
 
   testWidgets("dispose called", (tester) async {
+    addTearDown(() {
+      builder.dispose();
+    });
     await tester.pumpWidget(
       Directionality(
         textDirection: TextDirection.ltr,
@@ -102,6 +107,9 @@ void main() {
   });
 
   testWidgets("nested span", (tester) async {
+    addTearDown(() {
+      builder.dispose();
+    });
     await tester.pumpWidget(
       Directionality(
         textDirection: TextDirection.ltr,
@@ -120,6 +128,9 @@ void main() {
   });
 
   testWidgets("focus changed", (tester) async {
+    addTearDown(() {
+      builder.dispose();
+    });
     when(agent.generateTextSpanStyle(any))
         .thenReturn(const TextStyle(color: Colors.blue));
 
@@ -146,6 +157,9 @@ void main() {
   });
 
   testWidgets("focused default style", (tester) async {
+    addTearDown(() {
+      builder.dispose();
+    });
     await tester.pumpWidget(
       Directionality(
         textDirection: TextDirection.ltr,
@@ -161,7 +175,10 @@ void main() {
     await tester.pumpAndSettle();
   });
 
-  testWidgets("Semantic interaction", (tester) async {
+  testWidgets("Semantic interaction when non focused", (tester) async {
+    addTearDown(() {
+      builder.dispose();
+    });
     final span = interactSpans2();
     await tester.pumpWidget(
       Directionality(
@@ -174,9 +191,29 @@ void main() {
     );
 
     final focusableSemanticFinder = find.semantics.byFlag(SemanticsFlag.isLink);
-    expect(focusableSemanticFinder, findsExactly(2));
+    expect(focusableSemanticFinder, findsNothing);
+  });
+
+  testWidgets("Semantic interaction when primary focused", (tester) async {
+    addTearDown(() {
+      builder.dispose();
+    });
+    final span = interactSpans2();
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: AccessibleRichText(
+          span,
+          focusableTextSpanBuilder: builder,
+        ),
+      ),
+    );
+
+    builder.nodes[0].requestFocus();
+    await tester.pumpAndSettle();
+    final focusableSemanticFinder = find.semantics.byFlag(SemanticsFlag.isLink);
+    expect(focusableSemanticFinder, findsExactly(1));
     expect(focusableSemanticFinder.found.first.label, "Hello 2 ");
-    expect(focusableSemanticFinder.found.last.label, "Hello 3 ");
   });
 
   testWidgets("invoke intent interaction", (tester) async {
