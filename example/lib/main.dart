@@ -115,6 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         // on link tap or activated by keyboard
+                        debugPrint("link 1 activated");
                       },
                   ),
                   const TextSpan(
@@ -125,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         // on link tap or activated by keyboard
+                        debugPrint("link 2 activated");
                       },
                   ),
                 ],

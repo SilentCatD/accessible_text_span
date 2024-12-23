@@ -49,6 +49,7 @@ class FocusableTextSpanBuilder {
           WidgetSpan(
             child: FocusableActionDetector(
               focusNode: node,
+              includeFocusSemantics: node.hasPrimaryFocus,
               actions: {
                 ActivateIntent:
                     CallbackAction<ActivateIntent>(onInvoke: (intent) {
@@ -61,13 +62,16 @@ class FocusableTextSpanBuilder {
                   return null;
                 }),
               },
-              child: Semantics(
-                label: textSpan.semanticsLabel ?? textSpan.text,
-                link: true,
-                child: Container(
-                  width: 0.5,
-                  height: 0.5,
-                  color: Colors.transparent,
+              child: ExcludeSemantics(
+                excluding: !node.hasPrimaryFocus,
+                child: Semantics(
+                  label: textSpan.semanticsLabel ?? textSpan.text,
+                  link: true,
+                  child: Container(
+                    width: 0.5,
+                    height: 0.5,
+                    color: Colors.transparent,
+                  ),
                 ),
               ),
             ),
