@@ -1,3 +1,6 @@
+## 1.1.1
+- Semantic notification for onTap
+ 
 ## 1.1.0
 - Support swiping gesture
  
