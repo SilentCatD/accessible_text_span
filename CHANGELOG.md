@@ -1,3 +1,6 @@
+## 1.1.2
+- Semantic coverage test
+ 
 ## 1.1.1
 - Semantic notification for onTap
  

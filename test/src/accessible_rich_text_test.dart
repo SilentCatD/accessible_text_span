@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:accessible_text_span/accessible_text_span.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -214,6 +215,27 @@ void main() {
     final focusableSemanticFinder = find.semantics.byFlag(SemanticsFlag.isLink);
     expect(focusableSemanticFinder, findsExactly(1));
     expect(focusableSemanticFinder.found.first.label, "Hello 2 ");
+  });
+
+  testWidgets("Semantic interaction tap", (tester) async {
+    addTearDown(() {
+      builder.dispose();
+    });
+    final span = interactSpans2();
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: AccessibleRichText(
+          span,
+          focusableTextSpanBuilder: builder,
+        ),
+      ),
+    );
+
+    builder.nodes[0].requestFocus();
+    await tester.pumpAndSettle();
+    final focusableSemanticFinder = find.semantics.byFlag(SemanticsFlag.isLink);
+    tester.semantics.tap(focusableSemanticFinder);
   });
 
   testWidgets("invoke intent interaction", (tester) async {
