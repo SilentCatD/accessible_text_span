@@ -1,3 +1,6 @@
+## 1.1.3
+- Support double tap to activate on keyboard
+
 ## 1.1.2
 - Semantic coverage test
  

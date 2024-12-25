@@ -68,7 +68,7 @@ class FocusableTextSpanBuilder {
                   label: textSpan.semanticsLabel ?? textSpan.text,
                   link: true,
                   onTap: () {
-                    // for semantic notification
+                    gestureRecognizer.onTap?.call();
                   },
                   child: Container(
                     width: 0.5,
