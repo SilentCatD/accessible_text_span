@@ -838,24 +838,36 @@ class MockSpanBuilderInteractAgent extends _i1.Mock
       );
 
   @override
-  _i6.TextStyle generateTextSpanStyle(_i5.BuildContext? context) =>
+  _i6.TextStyle generateTextSpanStyle(
+    _i5.BuildContext? context,
+    _i6.TextStyle? spanStyle,
+  ) =>
       (super.noSuchMethod(
         Invocation.method(
           #generateTextSpanStyle,
-          [context],
+          [
+            context,
+            spanStyle,
+          ],
         ),
         returnValue: _FakeTextStyle_7(
           this,
           Invocation.method(
             #generateTextSpanStyle,
-            [context],
+            [
+              context,
+              spanStyle,
+            ],
           ),
         ),
         returnValueForMissingStub: _FakeTextStyle_7(
           this,
           Invocation.method(
             #generateTextSpanStyle,
-            [context],
+            [
+              context,
+              spanStyle,
+            ],
           ),
         ),
       ) as _i6.TextStyle);

@@ -132,7 +132,7 @@ void main() {
     addTearDown(() {
       builder.dispose();
     });
-    when(agent.generateTextSpanStyle(any))
+    when(agent.generateTextSpanStyle(any, any))
         .thenReturn(const TextStyle(color: Colors.blue));
 
     await tester.pumpWidget(
@@ -150,7 +150,7 @@ void main() {
     builder.nodes.elementAt(0).requestFocus();
     await tester.pumpAndSettle();
 
-    verify(agent.generateTextSpanStyle(any)).called(1);
+    verify(agent.generateTextSpanStyle(any, any)).called(1);
     verify(agent.onFocusChanged(0, builder.nodes.elementAt(0))).called(1);
 
     final renderedText = find.textContaining('Hello 2', findRichText: true);

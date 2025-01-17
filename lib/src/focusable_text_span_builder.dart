@@ -93,7 +93,7 @@ class FocusableTextSpanBuilder {
         text: textSpan.text,
         children: results,
         style: (node?.hasPrimaryFocus ?? false)
-            ? textStyleBuilder.call(context)
+            ? textStyleBuilder.call(context, textSpan.style)
             : textSpan.style,
         recognizer: textSpan.recognizer,
         mouseCursor: textSpan.mouseCursor,

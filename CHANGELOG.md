@@ -1,3 +1,6 @@
+## 2.0.0
+- Add current span style to parameter of focused text style builder
+ 
 ## 1.1.3
 - Support double tap to activate on keyboard
 

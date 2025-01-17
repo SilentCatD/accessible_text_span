@@ -57,8 +57,8 @@ AccessibleRichText(
       ),
     ],
   ),
-  focusedStyle: (context) {
-    return DefaultTextStyle.of(context).style.copyWith(
+  focusedStyle: (context, spanStyle) {
+    return (spanStyle ?? DefaultTextStyle.of(context).style).copyWith(
           decoration: TextDecoration.underline,
           backgroundColor: Colors.grey,
           color: Colors.purple,

@@ -7,9 +7,8 @@ import 'focusable_text_span_builder.dart';
 import 'type.dart';
 
 /// Default focused style for interactive [TextSpan] when focused by keyboard
-TextStyle defaultFocusedTextStyle(BuildContext context) {
-  return DefaultTextStyle.of(context)
-      .style
+TextStyle defaultFocusedTextStyle(BuildContext context, TextStyle? spanStyle) {
+  return (spanStyle ?? DefaultTextStyle.of(context).style)
       .copyWith(backgroundColor: Theme.of(context).focusColor);
 }
 

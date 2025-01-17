@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              focusedStyle: (context) {
+              focusedStyle: (context, spanStyle) {
                 return DefaultTextStyle.of(context).style.copyWith(
                       decoration: TextDecoration.underline,
                       backgroundColor: Colors.grey,
